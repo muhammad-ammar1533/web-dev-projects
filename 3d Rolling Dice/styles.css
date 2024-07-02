@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .dice-container {
+    perspective: 1000px;
+  }
+  
+  .dice {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+    transition: transform 1s;
+  }
+  
+  .face {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: white;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  
+  .face-1 { transform: rotateY(0deg) translateZ(50px); }
+  .face-2 { transform: rotateY(90deg) translateZ(50px); }
+  .face-3 { transform: rotateY(180deg) translateZ(50px); }
+  .face-4 { transform: rotateY(-90deg) translateZ(50px); }
+  .face-5 { transform: rotateX(90deg) translateZ(50px); }
+  .face-6 { transform: rotateX(-90deg) translateZ(50px); }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
