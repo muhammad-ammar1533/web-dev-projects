@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cash Register App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Cash Register App</h1>
+    <div class="input-group">
+      <label for="price">Item Price:</label>
+      <input type="number" id="price" placeholder="Enter item price" step="0.01">
+    </div>
+    <div class="input-group">
+      <label for="cash">Customer Cash:</label>
+      <input type="number" id="cash" placeholder="Enter cash given" step="0.01">
+    </div>
+    <button id="purchase-btn">Purchase</button>
+    <p id="change-due"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
