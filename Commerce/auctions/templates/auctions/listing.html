@@ -1,0 +1,50 @@
+{% extends 'auctions/layout.html' %}
+
+{% block body %}
+    <h2>{{ listing.title }}</h2>
+    <p>{{ listing.description }}</p>
+    <p><strong>Current Price:</strong> ${{ listing.starting_bid }}</p>
+    
+    {% if listing.image_url %}
+        <img src="{{ listing.image_url }}" width="300">
+    {% endif %}
+    
+    <br><br>
+    
+    {% if user.is_authenticated %}
+        <form action="{% url 'place_bid' listing.id %}" method="post">
+            {% csrf_token %}
+            {{ bid_form.as_p }}
+            <button type="submit">Place Bid</button>
+        </form>
+        
+        <form action="{% url 'toggle_watchlist' listing.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">{{ watchlisted|yesno:"Remove from,Add to" }} Watchlist</button>
+        </form>
+        
+        {% if listing.owner == user %}
+            <form action="{% url 'close_auction' listing.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Close Auction</button>
+            </form>
+        {% endif %}
+        
+        <h3>Comments</h3>
+        <form action="{% url 'listing' listing.id %}" method="post">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <button type="submit">Add Comment</button>
+        </form>
+        
+        <ul>
+            {% for comment in listing.comments.all %}
+                <li><strong>{{ comment.commenter }}:</strong> {{ comment.content }}</li>
+            {% empty %}
+                <p>No comments yet.</p>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p><a href="{% url 'login' %}">Log in</a> to bid, comment, or add to watchlist.</p>
+    {% endif %}
+{% endblock %}

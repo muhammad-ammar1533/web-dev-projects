@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Advanced Search</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        form {
+            align-items: flex-start;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            width: 300px;
+            margin-top: 5px;
+        }
+        input[type="submit"] {
+            background-color: #1a73e8;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Google Search</a>
+    </nav>
+    <form action="https://www.google.com/search" method="get">
+        <label>
+            Find pages with all these words:
+            <input type="text" name="as_q">
+        </label>
+        <label>
+            Find pages with this exact word or phrase:
+            <input type="text" name="as_epq">
+        </label>
+        <label>
+            Find pages with any of these words:
+            <input type="text" name="as_oq">
+        </label>
+        <label>
+            Find pages with none of these words:
+            <input type="text" name="as_eq">
+        </label>
+        <input type="submit" value="Advanced Search">
+    </form>
+</body>
+</html>
